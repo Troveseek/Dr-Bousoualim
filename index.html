@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Dr Bousoualim Ali — Chirurgien Dentiste | Sétif</title>
+<meta name="description" content="Boussoualim Dental Clinic — Implantologie et dentisterie esthétique à Sétif.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Outfit:wght@300;400;500;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d1b2a;
+    --navy: #0f2438;
+    --navy-deep: #081522;
+    --teal: #12808f;
+    --teal-light: #5fc6c9;
+    --gold: #c79a3d;
+    --bg: #f8fafc;
+    --bg-tint: #eef4f4;
+    --line: #e2e8f0;
+    --paper: #ffffff;
+    --max: 1200px;
+    --radius: 12px;
+    --shadow: 0 10px 30px -10px rgba(8, 21, 34, 0.1);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Outfit', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Language Switching Logic */
+  [dir="rtl"] { font-family: 'Tajawal', sans-serif; }
+  h1, h2, .display { font-family: 'Fraunces', serif; }
+  [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] .display { font-family: 'Tajawal', sans-serif; }
+
+  .lang-ar { display: none; }
+  .lang-fr { display: block; }
+  body.ar-active .lang-ar { display: block; }
+  body.ar-active .lang-fr { display: none; }
+
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; height: auto; display: block; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+
+  /* ---------- NAVBAR ---------- */
+  .navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid var(--line);
+    padding: 12px 0;
+    transition: all 0.3s ease;
+  }
+  .nav-content {
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .logo { font-size: 20px; font-weight: 700; color: var(--navy); display: flex; align-items: center; gap: 12px; }
+  
+  /* Custom Logo Styling */
+  .custom-logo { 
+    height: 48px; 
+    width: auto; 
+    display: block;
+    border-radius: 4px;
+  }
+
+  .lang-switch {
+    display: flex; background: var(--bg-tint); border-radius: 20px; padding: 4px; gap: 4px;
+  }
+  .lang-btn {
+    border: none; background: transparent; padding: 6px 12px; border-radius: 16px; font-size: 13px; font-weight: 600; cursor: pointer; color: var(--navy); transition: 0.3s;
+  }
+  .lang-btn.active { background: var(--paper); box-shadow: 0 2px 4px rgba(0,0,0,0.05); color: var(--teal); }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    padding: 160px 0 100px;
+    background: var(--navy-deep);
+    color: #fff;
+    min-height: 90vh;
+    display: flex; align-items: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover; opacity: 0.25; mix-blend-mode: luminosity;
+  }
+  .hero-content {
+    position: relative; z-index: 10; max-width: 650px;
+    opacity: 0; transform: translateY(20px);
+    animation: rise 0.8s ease forwards;
+  }
+  .hero .eyebrow-text { color: var(--teal-light); font-weight: 500; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; font-size: 14px; }
+  .hero h1 { font-size: clamp(40px, 6vw, 64px); line-height: 1.1; margin: 0 0 24px; font-weight: 600; }
+  .hero p.tagline { font-size: clamp(18px, 2vw, 22px); color: #c3d2db; margin: 0 0 40px; line-height: 1.5; }
+  
+  .cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 28px; border-radius: 6px;
+    font-size: 15px; font-weight: 600; text-decoration: none;
+    border: 1px solid transparent; cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .btn-solid { background: var(--teal); color: #fff; box-shadow: 0 4px 14px rgba(18, 128, 143, 0.4); }
+  .btn-solid:hover { background: #0e6b78; transform: translateY(-2px); }
+  .btn-ghost { background: rgba(255,255,255,0.1); color: #fff; backdrop-filter: blur(5px); border-color: rgba(255,255,255,0.2); }
+  .btn-ghost:hover { background: rgba(255,255,255,0.2); transform: translateY(-2px); }
+  .btn svg { width: 18px; height: 18px; }
+
+  @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+
+  /* ---------- SECTIONS ---------- */
+  section { padding: 96px 0; }
+  .eyebrow { font-size: 14px; color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 12px; }
+  h2.display { font-size: clamp(32px, 4vw, 42px); font-weight: 600; margin: 0 0 24px; color: var(--navy-deep); line-height: 1.2; }
+  p.lede { font-size: 18px; line-height: 1.8; color: #516472; margin: 0; }
+
+  /* About Grid */
+  .about-grid { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center; }
+  @media(min-width: 768px) { .about-grid { grid-template-columns: 1fr 1fr; } }
+  .about-img { width: 100%; border-radius: var(--radius); box-shadow: var(--shadow); object-fit: cover; aspect-ratio: 4/3; }
+
+  /* Services Grid */
+  .services { background: var(--bg-tint); }
+  .svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; margin-top: 48px; }
+  .svc-card { background: var(--paper); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: transform 0.3s ease; }
+  .svc-card:hover { transform: translateY(-8px); }
+  .svc-img { width: 100%; height: 200px; object-fit: cover; }
+  .svc-content { padding: 32px 24px; position: relative; }
+  .svc-icon { position: absolute; top: -28px; left: 24px; width: 56px; height: 56px; background: var(--teal); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(18, 128, 143, 0.3); border: 4px solid var(--paper); }
+  [dir="rtl"] .svc-icon { left: auto; right: 24px; }
+  .svc-icon svg { width: 24px; height: 24px; }
+  .svc-title { font-size: 22px; font-weight: 700; color: var(--navy-deep); margin: 0 0 12px; }
+  .svc-desc { font-size: 15px; line-height: 1.7; color: #516472; margin: 0; }
+
+  /* Location */
+  .location-grid { display: grid; grid-template-columns: 1fr; gap: 48px; }
+  @media(min-width: 768px) { .location-grid { grid-template-columns: 1fr 2fr; } }
+  .map-frame { width: 100%; height: 100%; min-height: 350px; border: 0; border-radius: var(--radius); filter: grayscale(0.1); box-shadow: var(--shadow); }
+
+  /* Contact / Footer */
+  .contact { background: var(--navy-deep); color: #e7eef0; padding-bottom: 48px; }
+  .contact h2.display { color: #fff; }
+  .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 48px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 48px; margin-bottom: 32px; }
+  .clist { list-style: none; padding: 0; margin: 24px 0 0; }
+  .clist li { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 16px; }
+  .clist li:last-child { border-bottom: none; }
+  .clist a { color: #fff; font-weight: 500; transition: color 0.2s; }
+  .clist a:hover { color: var(--teal-light); }
+  .clist svg { width: 20px; height: 20px; color: var(--teal-light); flex-shrink: 0; }
+  .foot-note { font-size: 14px; color: #63767f; text-align: center; }
+</style>
+</head>
+<body class="fr-active">
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="wrap nav-content">
+      <div class="logo">
+        <img src="logo.png" alt="Dr Bousoualim Logo" class="custom-logo">
+        <span class="lang-fr">Dr Bousoualim</span>
+        <span class="lang-ar">د. بوسواليم</span>
+      </div>
+      <div class="lang-switch">
+        <button class="lang-btn active" onclick="setLang('fr')" id="btn-fr">FR</button>
+        <button class="lang-btn" onclick="setLang('ar')" id="btn-ar">عربي</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=1920" alt="Dental Clinic" class="hero-bg">
+    <div class="wrap" style="width: 100%;">
+      <div class="hero-content">
+        <p class="eyebrow-text lang-fr">Chirurgien Dentiste — Sétif</p>
+        <p class="eyebrow-text lang-ar">جراح أسنان — سطيف</p>
+        
+        <h1 class="lang-fr">Dr Bousoualim Ali</h1>
+        <h1 class="lang-ar">د. بوسواليم علي</h1>
+        
+        <p class="tagline lang-fr">Spécialiste en implantologie et dentisterie esthétique. Retrouvez un sourire naturel et durable grâce à des soins d'excellence.</p>
+        <p class="tagline lang-ar">أخصائي في زراعة وتجميل الأسنان. استعد ابتسامتك الطبيعية والدائمة بفضل رعاية متميزة.</p>
+        
+        <div class="cta-row">
+          <a class="btn btn-solid" href="tel:+213783939897">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 3a2 2 0 0 1-.5 2L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2-.5c1 .3 2 .5 3 .7a2 2 0 0 1 1.7 2Z"/></svg>
+            <span class="lang-fr">Appeler</span><span class="lang-ar">اتصل بنا</span>
+          </a>
+          <a class="btn btn-ghost" href="https://wa.me/213783939897" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>
+            WhatsApp
+          </a>
+          <button class="btn btn-ghost" id="saveContactTop">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6.5 5.5 5.5 0 0 1 21.5 12c-2.5 4.5-9.5 9-9.5 9Z"/></svg>
+            <span class="lang-fr">Enregistrer</span><span class="lang-ar">حفظ جهة الاتصال</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section class="about">
+    <div class="wrap about-grid">
+      <div>
+        <p class="eyebrow lang-fr">À propos du cabinet</p>
+        <p class="eyebrow lang-ar">عن العيادة</p>
+        
+        <h2 class="display lang-fr">Une prise en charge attentive, pensée pour durer</h2>
+        <h2 class="display lang-ar">رعاية دقيقة مصممة لتدوم طويلاً</h2>
+        
+        <p class="lede lang-fr">Installé au cœur de Sétif, le cabinet du Dr Bousoualim Ali associe rigueur chirurgicale et sens du détail esthétique. Chaque traitement — d'un implant unique à une réhabilitation complète du sourire — est planifié pour rester fonctionnel et naturel sur le long terme.</p>
+        <p class="lede lang-ar">تقع عيادة الدكتور بوسواليم علي في قلب مدينة سطيف، وتجمع بين الدقة الجراحية والاهتمام بالتفاصيل الجمالية. يتم التخطيط لكل علاج — من زراعة سن واحد إلى إعادة تأهيل الابتسامة بالكامل — ليبقى وظيفيًا وطبيعيًا على المدى الطويل.</p>
+      </div>
+      <div>
+        <img src="Cabinet Dentaire.jpeg" alt="Cabinet Dentaire" class="about-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services">
+    <div class="wrap">
+      <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+        <p class="eyebrow lang-fr">Domaines d'expertise</p>
+        <p class="eyebrow lang-ar">مجالات خبرتنا</p>
+        <h2 class="display lang-fr">Nos Soins Dentaires</h2>
+        <h2 class="display lang-ar">علاجات الأسنان لدينا</h2>
+      </div>
+
+      <div class="svc-grid">
+        <div class="svc-card">
+          <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&q=80&w=600" alt="Implantologie" class="svc-img">
+          <div class="svc-content">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21c-1 0-1.6-2-2-4-.5-2.4-1.4-2.4-2 0-.3 1.6-.8 3-1.6 3-1.5 0-2.4-3-2.9-6C2.9 10 3 5 8 4c1.6-.4 3 .4 4 .8 1-.4 2.4-1.2 4-.8 5 1 5.1 6 4.5 10-.5 3-1.4 6-2.9 6-.8 0-1.3-1.4-1.6-3-.4-2.4-1.5-2.4-2 0-.4 2-1 4-2 4Z"/></svg></div>
+            <h3 class="svc-title lang-fr">Implantologie</h3>
+            <h3 class="svc-title lang-ar">زراعة الأسنان</h3>
+            <p class="svc-desc lang-fr">Remplacement de dents manquantes par des implants stables pour une mastication optimale.</p>
+            <p class="svc-desc lang-ar">استبدال الأسنان المفقودة بزرعات ثابتة لاستعادة المضغ والابتسامة الطبيعية.</p>
+          </div>
+        </div>
+
+        <div class="svc-card">
+          <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=600" alt="Esthétique" class="svc-img">
+          <div class="svc-content">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 14c2 3 5 5 8 5s6-2 8-5M6 9h12M8 5h8" stroke-linecap="round"/><circle cx="7" cy="14" r="1.2" fill="currentColor" stroke="none"/><circle cx="17" cy="14" r="1.2" fill="currentColor" stroke="none"/></svg></div>
+            <h3 class="svc-title lang-fr">Esthétique</h3>
+            <h3 class="svc-title lang-ar">تجميل الأسنان</h3>
+            <p class="svc-desc lang-fr">Blanchiment, facettes et prothèses esthétiques pour un sourire harmonieux et lumineux.</p>
+            <p class="svc-desc lang-ar">تبييض، قشور خزفية وتركيبات تجميلية لابتسامة متناسقة ومشرقة.</p>
+          </div>
+        </div>
+
+        <div class="svc-card">
+          <img src="https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?auto=format&fit=crop&q=80&w=600" alt="Orthodontie" class="svc-img">
+          <div class="svc-content">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="10" width="16" height="5" rx="2"/><path d="M7 15v2M11 15v2M15 15v2M8 10V8a4 4 0 0 1 8 0v2"/></svg></div>
+            <h3 class="svc-title lang-fr">Orthodontie</h3>
+            <h3 class="svc-title lang-ar">تقويم الأسنان</h3>
+            <p class="svc-desc lang-fr">Alignement dentaire pour enfants et adultes, avec appareils fixes ou solutions discrètes.</p>
+            <p class="svc-desc lang-ar">تعديل اصطفاف الأسنان للأطفال والبالغين باستخدام أجهزة ثابتة أو غير مرئية.</p>
+          </div>
+        </div>
+
+        <div class="svc-card">
+          <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=600" alt="Soins Généraux" class="svc-img">
+          <div class="svc-content">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v6M9 6h6M5 21l3-8h8l3 8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3 class="svc-title lang-fr">Soins Généraux</h3>
+            <h3 class="svc-title lang-ar">طب الأسنان العام</h3>
+            <p class="svc-desc lang-fr">Détartrage, traitement des caries et prise en charge rapide des urgences dentaires.</p>
+            <p class="svc-desc lang-ar">إزالة الترسبات، علاج التسوس، والتعامل السريع مع حالات طوارئ الأسنان.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section class="location">
+    <div class="wrap location-grid">
+      <div>
+        <p class="eyebrow lang-fr">Où nous trouver</p>
+        <p class="eyebrow lang-ar">أين تجدنا</p>
+        <h2 class="display lang-fr">Le cabinet à Sétif</h2>
+        <h2 class="display lang-ar">عيادتنا في سطيف</h2>
+        <p class="lede lang-fr" style="margin-bottom: 24px;">Situé à la Cité 20 Août 1955, Village Salah Bey. Facilement accessible avec des places de stationnement à proximité.</p>
+        <p class="lede lang-ar" style="margin-bottom: 24px;">تقع في حي 20 أوت 1955، قرية صالح باي. يسهل الوصول إليها مع توفر أماكن لركن السيارات بالقرب منها.</p>
+        <a class="btn btn-solid" style="background:var(--navy-deep);" href="https://maps.app.goo.gl/Gdk6PKUuyar4QE46A" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 20l-5-2V6l5 2 6-2 5 2v12l-5-2-6 2Z"/><path d="M9 6v14M15 4v14"/></svg>
+          <span class="lang-fr">Obtenir l'itinéraire</span>
+          <span class="lang-ar">احصل على الاتجاهات</span>
+        </a>
+      </div>
+      <div>
+        <iframe class="map-frame" loading="lazy" src="https://maps.google.com/maps?q=35.857966,5.2916316&z=16&output=embed" title="Localisation du cabinet"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / FOOTER -->
+  <section class="contact">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div>
+          <p class="eyebrow" style="color:var(--teal-light);"><span class="lang-fr">Nous contacter</span><span class="lang-ar">اتصل بنا</span></p>
+          <h2 class="display lang-fr">Prendre rendez-vous</h2>
+          <h2 class="display lang-ar">احجز موعداً</h2>
+          <p class="lede lang-fr" style="color:#a9bcc4;">Le cabinet est joignable par téléphone aux horaires d'ouverture. Un message WhatsApp est aussi le bienvenu.</p>
+          <p class="lede lang-ar" style="color:#a9bcc4;">يمكن التواصل مع العيادة هاتفياً خلال أوقات العمل. نرحب أيضاً برسائلكم عبر الواتساب.</p>
+          
+          <div style="margin-top: 32px;">
+            <button class="btn btn-solid" id="saveContactBottom">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6.5 5.5 5.5 0 0 1 21.5 12c-2.5 4.5-9.5 9-9.5 9Z"/></svg>
+              <span class="lang-fr">Enregistrer le contact</span><span class="lang-ar">حفظ جهة الاتصال</span>
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <ul class="clist">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 3a2 2 0 0 1-.5 2L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2-.5c1 .3 2 .5 3 .7a2 2 0 0 1 1.7 2Z"/></svg>
+              <a href="tel:+213783939897" dir="ltr">0783 93 98 97</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 3a2 2 0 0 1-.5 2L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2-.5c1 .3 2 .5 3 .7a2 2 0 0 1 1.7 2Z"/></svg>
+              <a href="tel:+213676688811" dir="ltr">0676 68 88 11</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3Z"/></svg>
+              <!-- UPDATED FACEBOOK LINK HERE -->
+              <a href="https://www.facebook.com/people/%D8%B9%D9%8A%D8%A7%D8%AF%D8%A9-%D8%A8%D9%88%D8%B3%D9%88%D8%A7%D9%84%D9%8A%D9%85-%D8%B9%D9%84%D9%8A-%D9%84%D8%B2%D8%B1%D8%A7%D8%B9%D8%A9-%D9%88%D8%AA%D8%AC%D9%85%D9%8A%D9%84-%D8%A7%D9%84%D8%A3%D8%B3%D9%86%D8%A7%D9%86/61584992963348/?rdid=wsgF6tJGyWp3DjUw&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19MkwJYGtE%2F" target="_blank" rel="noopener">Boussoualim Dental Clinic</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>
+                <span class="lang-fr">Cité 20 Août 1955, Salah Bey, Sétif</span>
+                <span class="lang-ar">حي 20 أوت 1955، صالح باي، سطيف</span>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p class="foot-note">© 2026 Boussoualim Dental Clinic — Sétif, Algérie</p>
+    </div>
+  </section>
+
+<script>
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.body.className = lang === 'ar' ? 'ar-active' : 'fr-active';
+    
+    document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+    document.getElementById('btn-ar').classList.toggle('active', lang === 'ar');
+  }
+
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('.navbar');
+    if(window.scrollY > 50) {
+      nav.style.boxShadow = '0 4px 20px rgba(0,0,0,0.05)';
+    } else {
+      nav.style.boxShadow = 'none';
+    }
+  });
+
+  function downloadVCard(){
+    var lines = [
+      "BEGIN:VCARD",
+      "VERSION:3.0",
+      "N:Bousoualim;Ali;;Dr;",
+      "FN:Dr Bousoualim Ali",
+      "ORG:Boussoualim Dental Clinic",
+      "TITLE:Chirurgien Dentiste",
+      "TEL;TYPE=CELL,VOICE:+213783939897",
+      "TEL;TYPE=CELL,VOICE:+213676688811",
+      "ADR;TYPE=WORK:;;Cite 20 Aout 1955, Salah Bey;Setif;;;Algerie",
+      "URL:https://maps.app.goo.gl/Gdk6PKUuyar4QE46A",
+      "END:VCARD"
+    ].join("\n");
+    var blob = new Blob([lines], { type: "text/vcard" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "Dr-Bousoualim-Ali.vcf";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+  
+  document.getElementById("saveContactTop").addEventListener("click", function(e){ e.preventDefault(); downloadVCard(); });
+  document.getElementById("saveContactBottom").addEventListener("click", function(e){ e.preventDefault(); downloadVCard(); });
+</script>
+</body>
+</html>
