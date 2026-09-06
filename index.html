@@ -160,7 +160,10 @@
   .clist a { color: #fff; font-weight: 500; transition: color 0.2s; }
   .clist a:hover { color: var(--teal-light); }
   .clist svg { width: 20px; height: 20px; color: var(--teal-light); flex-shrink: 0; }
-  .foot-note { font-size: 14px; color: #63767f; text-align: center; }
+  
+  .foot-note { font-size: 14px; color: #63767f; text-align: center; line-height: 1.6; }
+  .foot-note a { color: var(--teal-light); text-decoration: none; }
+  .foot-note a:hover { text-decoration: underline; }
 </style>
 </head>
 <body class="fr-active">
@@ -226,7 +229,8 @@
         <p class="lede lang-ar">تقع عيادة الدكتور بوسواليم علي في قلب صالح باي بسطيف، وتجمع بين الدقة الجراحية والاهتمام بالتفاصيل الجمالية. يتم التخطيط لكل علاج — من زراعة سن واحد إلى إعادة تأهيل الابتسامة بالكامل — ليبقى وظيفيًا وطبيعيًا على المدى الطويل.</p>
       </div>
       <div>
-        <img src="Cabinet Dentaire.png" alt="Cabinet Dentaire" class="about-img">
+        <!-- EXTENSION CORRIGÉE ICI EN .jpeg -->
+        <img src="Cabinet Dentaire.jpeg" alt="Cabinet Dentaire" class="about-img">
       </div>
     </div>
   </section>
@@ -235,8 +239,7 @@
   <section class="services">
     <div class="wrap">
       <div style="text-align: center; max-width: 600px; margin: 0 auto;">
-        <p class="eyebrow lang-fr">Domaines d'expertise</p>
-        <p class="eyebrow lang-ar">مجالات خبرتنا</p>
+        <!-- SUPPRESSION DU TEXTE "Domaines d'expertise" DU HAUT -->
         <h2 class="display lang-fr">Nos Domaines d'expertise</h2>
         <h2 class="display lang-ar">مجالات خبرتنا</h2>
       </div>
@@ -351,14 +354,20 @@
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
               <span>
-                <span class="lang-fr">Cité 20 Août 1955, Salah Bey, Sétif</span>
+                <span class="lang-fr">Cité 20 Août 1955, Saleh Bey, Sétif</span>
                 <span class="lang-ar">حي 20 أوت 1955، صالح باي، سطيف</span>
               </span>
             </li>
           </ul>
         </div>
       </div>
-      <p class="foot-note">© 2026 Boussoualim Dental Clinic — Saleh Bey, Sétif, Algérie</p>
+      
+      <!-- FOOTER MIS À JOUR ICI -->
+      <p class="foot-note">
+        <span class="lang-fr">© 2026 Boussoualim Dental Clinic — Saleh Bey, Sétif<br>Developed by Troveseek Production : <a href="mailto:troveseektld@gmail.com">troveseektld@gmail.com</a></span>
+        <span class="lang-ar">© 2026 عيادة بوسواليم لطب الأسنان — صالح باي، سطيف<br>تم التطوير بواسطة Troveseek Production : <a href="mailto:troveseektld@gmail.com" dir="ltr">troveseektld@gmail.com</a></span>
+      </p>
+      
     </div>
   </section>
 
